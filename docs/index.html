@@ -1,3 +1,1950 @@
-WebsiteHome page
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      CardioMark — A Benchmark for Automated Vertebral Heart Score Estimation
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --default: #444444;
+        --heading: #0a2a62;
+        --accent: #1b3bee;
+        --surface: #ffffff;
+        --alt-bg: #f4f6fd;
+        --border: #dde3f0;
+        --muted: #6b7a99;
+        --font-body: "Open Sans", sans-serif;
+        --font-head: "Raleway", sans-serif;
+      }
 
-Test
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-size: 0.91rem;
+        color: var(--default);
+        background: var(--bg);
+        line-height: 1.75;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-head);
+        color: var(--heading);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #0f28c2;
+        text-decoration: underline;
+      }
+
+      strong {
+        color: var(--heading);
+      }
+
+      #topnav {
+        background: #fff;
+        box-shadow: 0 2px 18px rgba(0, 0, 0, 0.07);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9000;
+        padding: 10px 0;
+        transition:
+          padding 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .navbar-brand {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--heading) !important;
+      }
+
+      .navbar-brand span {
+        color: var(--accent);
+      }
+
+      .nav-link {
+        font-family: var(--font-head);
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--default) !important;
+        padding: 5px 11px !important;
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 11px;
+        right: 11px;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transition: transform 0.25s;
+      }
+
+      .nav-link:hover {
+        color: var(--accent) !important;
+      }
+
+      .nav-link:hover::after {
+        transform: scaleX(1);
+      }
+
+      #hero {
+        background: linear-gradient(
+          140deg,
+          #071d52 0%,
+          #1040a0 55%,
+          #1b3bee 100%
+        );
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            ellipse 55% 65% at 90% 25%,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 30% 40% at 5% 85%,
+            rgba(255, 255, 255, 0.03) 0%,
+            transparent 60%
+          );
+      }
+
+      .hero-venue {
+        font-family: var(--font-head);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 10px;
+      }
+
+      #hero h1 {
+        font-size: clamp(1.55rem, 3vw, 2.15rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.25;
+        margin-bottom: 16px;
+      }
+
+      #hero p.lead {
+        font-size: 0.93rem;
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 780px;
+        line-height: 1.8;
+        margin-bottom: 24px;
+      }
+
+      .kw-pill {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        color: rgba(255, 255, 255, 0.88);
+        font-family: var(--font-head);
+        font-size: 0.7rem;
+        font-weight: 600;
+        padding: 3px 11px;
+        border-radius: 20px;
+        margin: 2px;
+      }
+
+      .anon-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.82);
+        font-family: var(--font-head);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        padding: 4px 13px;
+        border-radius: 20px;
+        margin-bottom: 14px;
+      }
+
+      .btn-hero {
+        font-family: var(--font-head);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 9px 24px;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        transition: all 0.25s;
+      }
+
+      .btn-hero-white {
+        background: #fff;
+        color: var(--accent);
+        border: 2px solid #fff;
+      }
+
+      .btn-hero-white:hover {
+        background: transparent;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .btn-hero-ghost {
+        background: transparent;
+        color: #fff;
+        border: 2px solid rgba(255, 255, 255, 0.45);
+      }
+
+      .btn-hero-ghost:hover {
+        border-color: #fff;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .stat-row {
+        margin-top: 44px;
+        padding-top: 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 0;
+        align-items: center;
+      }
+
+      .stat-cell {
+        text-align: center;
+        padding: 0 24px 0 0;
+      }
+
+      .stat-num {
+        font-family: var(--font-head);
+        font-size: 1.65rem;
+        font-weight: 800;
+        color: #fff;
+        display: block;
+        line-height: 1;
+      }
+
+      .stat-lbl {
+        font-family: var(--font-head);
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.62);
+      }
+
+      .stat-sep {
+        width: 1px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.2);
+        margin-right: 24px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .sec-alt {
+        background: var(--alt-bg);
+      }
+
+      section[id] {
+        scroll-margin-top: 70px;
+      }
+
+      .sec-hdr {
+        margin-bottom: 36px;
+      }
+
+      .sec-hdr .pre-label {
+        font-family: var(--font-head);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .sec-hdr h2 {
+        font-size: 1.55rem;
+        font-weight: 700;
+        color: var(--heading);
+        margin-bottom: 8px;
+      }
+
+      .sec-hdr p {
+        color: #6b7a99;
+        font-size: 0.87rem;
+        max-width: 720px;
+        margin: 0;
+      }
+
+      .accent-line {
+        width: 40px;
+        height: 3px;
+        background: var(--accent);
+        border-radius: 2px;
+        margin: 10px 0 0;
+      }
+
+      .sec-hdr.center {
+        text-align: center;
+      }
+
+      .sec-hdr.center .accent-line {
+        margin: 10px auto 0;
+      }
+
+      .sec-hdr.center p {
+        margin: 0 auto;
+      }
+
+      .subsec-label {
+        font-family: var(--font-head);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .abstract-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--accent);
+        border-radius: 6px;
+        padding: 28px 30px;
+        box-shadow: 0 3px 16px rgba(27, 59, 238, 0.05);
+        font-size: 0.9rem;
+        line-height: 1.82;
+      }
+
+      .abstract-card p {
+        margin-bottom: 10px;
+      }
+
+      .abstract-card p:last-child {
+        margin: 0;
+      }
+
+      .modern-card {
+        background: #eef2ff;
+        border: 1px solid rgba(27, 59, 238, 0.1);
+        border-radius: 16px;
+        padding: 26px 24px;
+        height: 100%;
+        transition: all 0.28s ease;
+        box-shadow: 0 4px 18px rgba(10, 42, 98, 0.06);
+      }
+
+      .modern-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 28px rgba(27, 59, 238, 0.12);
+        border-color: rgba(27, 59, 238, 0.18);
+      }
+
+      .contrib-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .contrib-icon {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #1b3bee, #5b7cff);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        box-shadow: 0 6px 16px rgba(27, 59, 238, 0.2);
+      }
+
+      .contrib-tag {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #4d63c8;
+        margin-bottom: 4px;
+      }
+
+      .contrib-card h5 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--heading);
+        line-height: 1.35;
+      }
+
+      .contrib-card p {
+        margin: 0;
+        font-size: 0.86rem;
+        color: #56627a;
+        line-height: 1.85;
+      }
+
+      .info-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 22px;
+        height: 100%;
+        box-shadow: 0 4px 18px rgba(10, 42, 98, 0.05);
+      }
+
+      .metric-tile {
+        background: #eef2ff;
+        border: 1px solid rgba(27, 59, 238, 0.12);
+        border-radius: 12px;
+        padding: 18px;
+        text-align: center;
+        height: 100%;
+      }
+
+      .metric-tile .num {
+        font-family: var(--font-head);
+        font-weight: 800;
+        color: var(--heading);
+        font-size: 1.55rem;
+        line-height: 1;
+      }
+
+      .metric-tile .lbl {
+        font-family: var(--font-head);
+        font-size: 0.68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #657399;
+        margin-top: 7px;
+      }
+
+      .step-row {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+        align-items: flex-start;
+      }
+
+      .step-num {
+        min-width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-family: var(--font-head);
+        font-size: 0.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .step-body h6 {
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--heading);
+        margin-bottom: 3px;
+      }
+
+      .step-body p {
+        font-size: 0.83rem;
+        color: #666;
+        margin: 0;
+      }
+
+      .fig-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        overflow: hidden;
+        transition:
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+
+      .fig-card:hover {
+        box-shadow: 0 6px 24px rgba(10, 42, 98, 0.09);
+        transform: translateY(-2px);
+      }
+
+      .fig-img {
+        background: #f7f9fc;
+        padding: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .fig-img img {
+        max-width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+        cursor: zoom-in;
+        transition: transform 0.25s;
+      }
+
+      .fig-img img:hover {
+        transform: scale(1.02);
+      }
+
+      .fig-body {
+        padding: 13px 15px;
+      }
+
+      .fig-num {
+        font-family: var(--font-head);
+        font-size: 0.67rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .fig-cap {
+        font-size: 0.8rem;
+        color: #666;
+        line-height: 1.55;
+        margin: 0;
+      }
+
+      .fig-wide .fig-img {
+        min-height: 160px;
+      }
+
+      .fig-wide .fig-img img {
+        max-height: 420px;
+      }
+
+      .tbl-label {
+        font-family: var(--font-head);
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--heading);
+        margin-bottom: 9px;
+      }
+
+      .res-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        overflow: hidden;
+        font-size: 0.83rem;
+        background: #fff;
+      }
+
+      .res-table thead th {
+        background: var(--heading);
+        color: rgba(255, 255, 255, 0.86);
+        font-family: var(--font-head);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 10px 13px;
+        border: none;
+        white-space: nowrap;
+      }
+
+      .res-table tbody td {
+        padding: 8px 13px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: middle;
+      }
+
+      .res-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .res-table tbody tr:hover {
+        background: #f4f6fd;
+      }
+
+      .row-ours {
+        background: rgba(27, 59, 238, 0.05) !important;
+      }
+
+      .row-ours td {
+        font-weight: 700;
+        color: var(--heading);
+      }
+
+      .row-ours td:first-child {
+        border-left: 3px solid var(--accent);
+      }
+
+      .section-rule {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 44px 0;
+      }
+
+      .breed-card {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.75rem;
+        background: #fff;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 16px rgba(10, 42, 98, 0.04);
+      }
+
+      .breed-header,
+      .breed-row {
+        display: flex;
+        align-items: center;
+      }
+
+      .breed-header {
+        font-family: var(--font-head);
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--heading);
+        border-bottom: 1px solid #edf0f8;
+        padding-bottom: 0.45rem;
+        margin-bottom: 0.45rem;
+      }
+
+      .breed-cell {
+        padding: 0.2rem 0;
+        font-size: 0.75rem;
+      }
+
+      .breed-no {
+        width: 2.5rem;
+        flex: 0 0 auto;
+        text-align: right;
+        padding-right: 0.5rem;
+        color: #6b7280;
+      }
+
+      .breed-name {
+        flex: 1 1 auto;
+        padding-right: 0.5rem;
+      }
+
+      .breed-count {
+        width: 4.5rem;
+        flex: 0 0 auto;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .breed-total {
+        border-top: 1px dashed #d7dceb;
+        margin-top: 0.35rem;
+        padding-top: 0.35rem;
+      }
+
+      .video-container {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 28px rgba(10, 42, 98, 0.12);
+        background: #000;
+      }
+
+      code {
+        background: #f4f6fd;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 0.1rem 0.35rem;
+        color: var(--heading);
+      }
+
+      .bib-block {
+        background: #f4f6fd;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--accent);
+        border-radius: 6px;
+        padding: 20px 22px;
+        font-family: "Courier New", monospace;
+        font-size: 0.78rem;
+        line-height: 1.7;
+        color: #1e2a56;
+        white-space: pre-wrap;
+        word-break: break-word;
+        position: relative;
+      }
+
+      .copy-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-family: var(--font-head);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 5px 12px;
+        cursor: pointer;
+      }
+
+      footer {
+        background: var(--heading);
+        color: rgba(255, 255, 255, 0.55);
+        padding: 26px 0;
+        font-family: var(--font-head);
+        font-size: 0.78rem;
+      }
+
+      footer .brand {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      footer a {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      footer a:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .f-sep {
+        display: inline-block;
+        width: 1px;
+        height: 16px;
+        background: rgba(255, 255, 255, 0.18);
+        margin: 0 10px;
+        vertical-align: middle;
+      }
+
+      .lb {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(4, 8, 20, 0.93);
+        z-index: 99999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .lb.open {
+        display: flex;
+      }
+
+      .lb img {
+        max-width: 92vw;
+        max-height: 88vh;
+        object-fit: contain;
+        border-radius: 4px;
+        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+      }
+
+      .lb-close {
+        position: fixed;
+        top: 14px;
+        right: 18px;
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+
+      @media (max-width: 767px) {
+        #hero {
+          padding: 90px 0 56px;
+        }
+
+        .stat-sep {
+          display: none;
+        }
+
+        .stat-cell {
+          padding: 0 16px 0 0;
+        }
+
+        section {
+          padding: 48px 0;
+        }
+
+        .nav-link::after {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="topnav" class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#hero">Cardio<span>Mark</span></a
+        ><button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nm"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nm">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#abstract">Abstract</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contributions">Contributions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#dataset">Dataset</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#tool">Tool</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#benchmark">Benchmark</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#results">Results</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#conclusion">Conclusion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#citation">Citation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section id="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10">
+            <div class="anon-tag" data-aos="fade-down">
+              <i class="bi bi-lock-fill"></i> Anonymous Submission — Under
+              Review
+            </div>
+            <div class="hero-venue" data-aos="fade-down" data-aos-delay="60">
+              NeurIPS 2026 &nbsp;·&nbsp; Datasets &amp; Benchmarks Track
+            </div>
+            <h1 data-aos="fade-up" data-aos-delay="100">
+              CardioMark: Benchmarking Reliability and Boundary Sensitivity in
+              Automated Vertebral Heart Score Estimation
+            </h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="150">
+              A structured dataset, annotation platform, and evaluation suite
+              for automated canine Vertebral Heart Score estimation from lateral
+              thoracic radiographs.
+            </p>
+            <div class="mb-4" data-aos="fade-up" data-aos-delay="190">
+              <span class="kw-pill">Veterinary AI</span
+              ><span class="kw-pill">Vertebral Heart Score</span
+              ><span class="kw-pill">Cardiac Keypoints</span
+              ><span class="kw-pill">Benchmark Evaluation</span
+              ><span class="kw-pill">Boundary Sensitivity</span
+              ><span class="kw-pill">Subgroup Reliability</span
+              ><span class="kw-pill">Annotation Tool</span>
+            </div>
+            <div
+              class="d-flex flex-wrap gap-3 mt-4"
+              data-aos="fade-up"
+              data-aos-delay="230"
+            >
+              <a
+                href="https://huggingface.co/datasets/gen-ai-researcher/cardio-mark-subset"
+                target="_blank"
+                class="btn-hero btn-hero-white"
+              >
+                <i class="bi bi-database"></i>
+                Dataset
+              </a>
+
+              <a
+                href="https://github.com/gen-ai-research/CardioMark"
+                target="_blank"
+                class="btn-hero btn-hero-ghost"
+              >
+                <i class="bi bi-github"></i>
+                Code
+              </a>
+
+              <a href="#tool-demo" class="btn-hero btn-hero-ghost">
+                <i class="bi bi-play-circle"></i>
+                Tool Demo
+              </a>
+
+              <a href="#results" class="btn-hero btn-hero-ghost">
+                <i class="bi bi-bar-chart-line"></i>
+                Results
+              </a>
+            </div>
+            <div class="stat-row" data-aos="fade-up" data-aos-delay="280">
+              <div class="stat-cell">
+                <span class="stat-num">21,465</span
+                ><span class="stat-lbl">Radiographs</span>
+              </div>
+              <div class="stat-sep"></div>
+              <div class="stat-cell">
+                <span class="stat-num">12,385</span
+                ><span class="stat-lbl">Dogs</span>
+              </div>
+              <div class="stat-sep"></div>
+              <div class="stat-cell">
+                <span class="stat-num">144+</span
+                ><span class="stat-lbl">Breed Labels</span>
+              </div>
+              <div class="stat-sep"></div>
+              <div class="stat-cell">
+                <span class="stat-num">6</span
+                ><span class="stat-lbl">Keypoints/Image</span>
+              </div>
+              <div class="stat-sep"></div>
+              <div class="stat-cell">
+                <span class="stat-num">10–12s</span
+                ><span class="stat-lbl">Annotation Time</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="abstract">
+      <div class="container">
+        <div class="sec-hdr" data-aos="fade-up">
+          <span class="pre-label">Overview</span>
+          <h2>Abstract</h2>
+          <div class="accent-line"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="80">
+            <div class="abstract-card">
+              <p>
+                Vertebral Heart Score (VHS) estimation is a clinically grounded
+                measurement task in veterinary cardiology: experts identify
+                anatomical landmarks, compute geometric axes, and apply fixed
+                diagnostic thresholds. Existing automated methods are often
+                evaluated using aggregate accuracy or regression error alone,
+                which can hide clinically important failures near VHS decision
+                boundaries.
+              </p>
+              <p>
+                We present <strong>CardioMark</strong>, a benchmark for
+                automated VHS estimation built from 21,465 annotated lateral
+                thoracic canine radiographs from 12,385 dogs. Each image
+                includes six cardiac and vertebral keypoints, a continuous VHS
+                measurement, and threshold-based diagnostic labels. The dataset
+                was constructed using a dedicated web-based annotation tool that
+                supports rapid keypoint placement, real-time VHS computation,
+                model-assisted review, and quality control.
+              </p>
+              <p>
+                CardioMark evaluates the full measurement pipeline: landmark
+                localization, geometric consistency, continuous VHS estimation,
+                threshold-based classification, subgroup reliability, and
+                decision instability near diagnostic boundaries. Our analysis
+                shows that models with strong aggregate metrics can still fail
+                near clinical thresholds, motivating evaluation protocols
+                aligned with how VHS is actually used in practice.
+              </p>
+              <p class="mb-0">
+                <strong>Anonymous review note:</strong> identifying links,
+                author names, affiliations, and institution-specific details are
+                intentionally omitted during peer review.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contributions" class="sec-alt">
+      <div class="container">
+        <div class="sec-hdr center" data-aos="fade-up">
+          <span class="pre-label">Summary</span>
+          <h2>Key Contributions</h2>
+          <p>
+            CardioMark is designed as an evaluation resource rather than only a
+            leaderboard.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="60">
+            <div class="contrib-card modern-card">
+              <div class="contrib-header">
+                <div class="contrib-icon">
+                  <i class="bi bi-database-fill"></i>
+                </div>
+                <div>
+                  <span class="contrib-tag">Dataset</span>
+                  <h5>Large-Scale VHS Benchmark</h5>
+                </div>
+              </div>
+              <p>
+                21,465 annotated lateral thoracic radiographs from 12,385 dogs,
+                with six cardiac keypoints, continuous VHS measurements,
+                diagnostic categories, and breed-level metadata.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="120">
+            <div class="contrib-card modern-card">
+              <div class="contrib-header">
+                <div class="contrib-icon"><i class="bi bi-display"></i></div>
+                <div>
+                  <span class="contrib-tag">Tool</span>
+                  <h5>Standardized Annotation Platform</h5>
+                </div>
+              </div>
+              <p>
+                A web-based VHS annotation interface supports keypoint
+                placement, real-time VHS calculation, zooming, panning,
+                window-level controls, invalid-case marking, and model-assisted
+                prediction review.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="180">
+            <div class="contrib-card modern-card">
+              <div class="contrib-header">
+                <div class="contrib-icon">
+                  <i class="bi bi-exclamation-triangle-fill"></i>
+                </div>
+                <div>
+                  <span class="contrib-tag">Evaluation</span>
+                  <h5>Reliability-Oriented Protocols</h5>
+                </div>
+              </div>
+              <p>
+                The benchmark exposes boundary sensitivity, subgroup
+                reliability, and perturbation-induced decision instability that
+                remain hidden under aggregate accuracy or MAE alone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="dataset">
+      <div class="container">
+        <div class="sec-hdr" data-aos="fade-up">
+          <span class="pre-label">Dataset</span>
+          <h2>Canine Cardiac Keypoint Dataset</h2>
+          <p>
+            A large-scale benchmark for VHS estimation with anatomical
+            keypoints, clinical labels, and demographic metadata.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="row g-4 mb-4">
+          <div class="col-lg-3 col-6" data-aos="fade-up">
+            <div class="metric-tile">
+              <div class="num">21,465</div>
+              <div class="lbl">Annotated Images</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="60">
+            <div class="metric-tile">
+              <div class="num">12,385</div>
+              <div class="lbl">Unique Dogs</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="120">
+            <div class="metric-tile">
+              <div class="num">6</div>
+              <div class="lbl">Keypoints/Image</div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="180">
+            <div class="metric-tile">
+              <div class="num">144+</div>
+              <div class="lbl">Breed Labels</div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="80">
+            <div class="fig-card fig-wide">
+              <div class="fig-img">
+                <img
+                  src="figures/dataset_overview.png"
+                  alt="CardioMark dataset overview"
+                  onclick="lb(this.src)"
+                />
+              </div>
+              <div class="fig-body">
+                <span class="fig-num">Dataset Overview</span>
+                <p class="fig-cap">
+                  CardioMark contains lateral thoracic radiographs with six
+                  annotated anatomical keypoints used to compute long-axis,
+                  short-axis, vertebral reference length, and continuous VHS.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="140">
+            <div class="info-card">
+              <h5>
+                <i class="bi bi-check-circle-fill text-success me-2"></i>Dataset
+                Features
+              </h5>
+              <ul class="mb-0">
+                <li>
+                  <strong>21,465 images</strong> with six precisely annotated
+                  cardiac/vertebral keypoints.
+                </li>
+                <li>
+                  <strong>Lateral radiographs only</strong> for standardized VHS
+                  measurement.
+                </li>
+                <li>
+                  <strong>Continuous VHS values</strong> and threshold-based
+                  diagnostic categories.
+                </li>
+                <li>
+                  <strong>Patient-level organization</strong> to avoid leakage
+                  across train, validation, and test evaluation.
+                </li>
+                <li>
+                  <strong>Export-ready annotations</strong> compatible with
+                  CSV/JSON-style keypoint pipelines.
+                </li>
+                <li>
+                  <strong>Quality-control workflow</strong> for invalid cases,
+                  model review, and annotation consistency.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr class="section-rule" />
+        <div class="row g-4">
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="info-card">
+              <h5>Demographic Information</h5>
+              <div class="row g-3 mt-1">
+                <div class="col-md-6">
+                  <p class="tbl-label">Sex Distribution</p>
+                  <table class="res-table">
+                    <thead>
+                      <tr>
+                        <th>Sex</th>
+                        <th>Count</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Female</td>
+                        <td>7,941</td>
+                      </tr>
+                      <tr>
+                        <td>Male</td>
+                        <td>4,395</td>
+                      </tr>
+                      <tr>
+                        <td>Unknown</td>
+                        <td>49</td>
+                      </tr>
+                      <tr class="row-ours">
+                        <td>Total</td>
+                        <td>12,385</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-md-6">
+                  <p class="tbl-label">Age Group Distribution</p>
+                  <table class="res-table">
+                    <thead>
+                      <tr>
+                        <th>Age Group</th>
+                        <th>Count</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>0–5 years</td>
+                        <td>2,961</td>
+                      </tr>
+                      <tr>
+                        <td>6–11 years</td>
+                        <td>6,272</td>
+                      </tr>
+                      <tr>
+                        <td>12–17 years</td>
+                        <td>2,827</td>
+                      </tr>
+                      <tr>
+                        <td>18–30 years</td>
+                        <td>86</td>
+                      </tr>
+                      <tr>
+                        <td>Unknown</td>
+                        <td>239</td>
+                      </tr>
+                      <tr class="row-ours">
+                        <td>Total</td>
+                        <td>12,385</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="80">
+            <div class="info-card">
+              <h5>Dataset Split</h5>
+              <p style="font-size: 0.86rem; color: #666">
+                The benchmark uses a subject-level split so that images from the
+                same dog do not appear across multiple partitions.
+              </p>
+              <table class="res-table">
+                <thead>
+                  <tr>
+                    <th>Split</th>
+                    <th>Number of Images</th>
+                    <th>Percentage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Training</td>
+                    <td>15,026</td>
+                    <td>70%</td>
+                  </tr>
+                  <tr>
+                    <td>Validation</td>
+                    <td>2,155</td>
+                    <td>10%</td>
+                  </tr>
+                  <tr>
+                    <td>Testing</td>
+                    <td>4,275</td>
+                    <td>20%</td>
+                  </tr>
+                  <tr class="row-ours">
+                    <td>Total</td>
+                    <td>21,465</td>
+                    <td>100%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="mt-2 mb-0" style="font-size: 0.78rem; color: #6b7a99">
+                Use the exact split file released with the benchmark for
+                reproducible evaluation.
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr class="section-rule" />
+        <div class="row">
+          <div class="col-12" data-aos="fade-up">
+            <div class="info-card">
+              <h5>Breed Information</h5>
+              <p style="font-size: 0.87rem; color: #666; max-width: 900px">
+                The dataset includes a broad range of breed labels, including
+                mixed-breed cases and cases with unknown breed metadata. The
+                table below preserves the complete breed distribution used in
+                the project website.
+              </p>
+              <div id="breed-grid" class="container-fluid px-0 mt-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="tool" class="sec-alt">
+      <div class="container">
+        <div class="sec-hdr" data-aos="fade-up">
+          <span class="pre-label">Annotation Tool</span>
+          <h2>VHSMarker / VetMark Annotation Platform</h2>
+          <p>
+            A web-based interface for rapid, standardized cardiac keypoint
+            annotation and real-time VHS calculation.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-5" data-aos="fade-up">
+            <div class="fig-card">
+              <div class="fig-img">
+                <img
+                  src="assets/resources/imgs/Main Screen.png"
+                  alt="Annotation tool interface"
+                  onclick="lb(this.src)"
+                />
+              </div>
+              <div class="fig-body">
+                <span class="fig-num">Tool Interface</span>
+                <p class="fig-cap">
+                  Interactive interface for six anatomical keypoints, real-time
+                  VHS display, model-assisted prediction review, and
+                  quality-control actions.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-card mb-4">
+              <h5>
+                <i class="bi bi-layers-fill me-2"></i>Technical Architecture
+              </h5>
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="mb-md-0">
+                    <li>
+                      <strong>Backend:</strong> Flask/Python with OpenCV image
+                      processing.
+                    </li>
+                    <li>
+                      <strong>Frontend:</strong> HTML5 Canvas and JavaScript for
+                      responsive annotation.
+                    </li>
+                    <li>
+                      <strong>Real-time API:</strong> immediate VHS computation
+                      after keypoint updates.
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="mb-0">
+                    <li>
+                      <strong>ML integration:</strong> predict button for
+                      automated model output display.
+                    </li>
+                    <li>
+                      <strong>Quality control:</strong> mark invalid cases and
+                      compare predicted landmarks.
+                    </li>
+                    <li>
+                      <strong>Viewing controls:</strong> zooming, panning, and
+                      brightness/contrast adjustment.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="info-card">
+              <h5><i class="bi bi-bullseye me-2"></i>Core Functionality</h5>
+              <p class="mb-2">
+                The platform supports precise labeling of six anatomical
+                keypoints: cardiac apex, tracheal bifurcation, short-axis
+                endpoints, and vertebral reference points. It computes VHS in
+                real time using:
+              </p>
+              <p><code>VHS = 6 × (AB + CD) / EF</code></p>
+              <p class="mb-0">
+                Here, AB is the long cardiac axis, CD is the short cardiac axis,
+                and EF is the vertebral reference length. The tool was designed
+                to reduce annotation time to approximately
+                <strong>10–12 seconds per image</strong> while maintaining a
+                standardized measurement workflow.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="120">
+            <h5>
+              <i class="bi bi-play-circle-fill text-danger me-2"></i>Tool
+              Demonstration
+            </h5>
+            <div class="ratio ratio-16x9 video-container">
+              <video controls>
+                <source src="assets/VHS.mp4" type="video/mp4" />
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <p class="text-muted small mt-2">
+              Video: Keypoint placement, real-time VHS calculation, model
+              prediction comparison, invalid-case marking, zoom/pan, and
+              window-level adjustment for fine landmark inspection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="benchmark">
+      <div class="container">
+        <div class="sec-hdr" data-aos="fade-up">
+          <span class="pre-label">Evaluation Design</span>
+          <h2>Benchmark Protocol</h2>
+          <p>
+            CardioMark evaluates the complete measurement process instead of
+            only final class accuracy.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-5" data-aos="fade-up">
+            <div class="step-row">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h6>Landmark Localization</h6>
+                <p>
+                  Evaluate six cardiac and vertebral keypoints using
+                  coordinate-based errors and normalized localization metrics.
+                </p>
+              </div>
+            </div>
+            <div class="step-row">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h6>Geometric Measurement</h6>
+                <p>
+                  Compute VHS from predicted geometry and assess alignment with
+                  the clinical measurement pipeline.
+                </p>
+              </div>
+            </div>
+            <div class="step-row">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h6>Threshold-Based Diagnosis</h6>
+                <p>
+                  Classify VHS into Normal, Borderline, and Enlarged categories
+                  using fixed clinical thresholds at 8.2 and 10.0 VU.
+                </p>
+              </div>
+            </div>
+            <div class="step-row">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h6>Boundary and Subgroup Reliability</h6>
+                <p>
+                  Analyze near-threshold accuracy, perturbation-induced flip
+                  rate, class-wise performance, and worst-group reliability.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="120">
+            <div class="fig-card fig-wide">
+              <div class="fig-img">
+                <img
+                  src="figures/svgr_pipeline-evaluation_pipeline.png"
+                  alt="CardioMark evaluation pipeline"
+                  onclick="lb(this.src)"
+                />
+              </div>
+              <div class="fig-body">
+                <span class="fig-num">Evaluation Pipeline</span>
+                <p class="fig-cap">
+                  Predicted landmarks are converted into geometric axes,
+                  continuous VHS values, threshold-based labels, and
+                  boundary-sensitive reliability metrics.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="results" class="sec-alt">
+      <div class="container">
+        <div class="sec-hdr" data-aos="fade-up">
+          <span class="pre-label">Experiments</span>
+          <h2>Results and Reliability Analysis</h2>
+          <p>
+            Aggregate metrics are useful, but CardioMark highlights where
+            clinically relevant errors occur.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="row g-4 align-items-start mb-5">
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="fig-card">
+              <div class="fig-img">
+                <img
+                  src="figures/vhs_scatter_all_models.png"
+                  alt="Predicted vs ground-truth VHS"
+                  onclick="lb(this.src)"
+                />
+              </div>
+              <div class="fig-body">
+                <span class="fig-num">Predicted vs. Ground-Truth VHS</span>
+                <p class="fig-cap">
+                  Scatter plots compare model behavior against the diagonal and
+                  clinical thresholds. The analysis shows that pointwise error
+                  and threshold-aligned decision behavior are not always
+                  equivalent.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="fig-card">
+              <div class="fig-img">
+                <img
+                  src="figures/failure_analysis_main.png"
+                  alt="Boundary and subgroup failure analysis"
+                  onclick="lb(this.src)"
+                />
+              </div>
+              <div class="fig-body">
+                <span class="fig-num">Failure Analysis</span>
+                <p class="fig-cap">
+                  Boundary sensitivity, subgroup performance, and decision
+                  instability reveal reliability gaps that aggregate metrics
+                  alone can miss.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6" data-aos="fade-up">
+            <p class="tbl-label">Boundary Sensitivity Summary</p>
+            <table class="res-table">
+              <thead>
+                <tr>
+                  <th>Region</th>
+                  <th>Definition</th>
+                  <th>Clinical Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Far</td>
+                  <td>&gt; 1.0 VU from thresholds</td>
+                  <td>
+                    Lower-risk region where diagnostic categories are more
+                    stable.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Near</td>
+                  <td>&lt; 0.5 VU from thresholds</td>
+                  <td>
+                    High-stakes region where small VHS errors can change
+                    diagnosis.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Flip Rate</td>
+                  <td>Class change under ±0.1 VU perturbation</td>
+                  <td>
+                    Measures decision instability around clinical boundaries.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <p class="tbl-label">VHS Diagnostic Categories</p>
+            <table class="res-table">
+              <thead>
+                <tr>
+                  <th>Class</th>
+                  <th>VHS Range</th>
+                  <th>Interpretation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Normal</td>
+                  <td>&lt; 8.2 VU</td>
+                  <td>No cardiomegaly by the benchmark threshold.</td>
+                </tr>
+                <tr>
+                  <td>Borderline</td>
+                  <td>8.2–10.0 VU</td>
+                  <td>
+                    Intermediate region requiring careful measurement
+                    reliability.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Enlarged</td>
+                  <td>&gt; 10.0 VU</td>
+                  <td>Cardiac enlargement by VHS threshold.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="conclusion">
+      <div class="container">
+        <div class="sec-hdr" data-aos="fade-up">
+          <span class="pre-label">Takeaway</span>
+          <h2>Conclusion</h2>
+          <div class="accent-line"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="80">
+            <div class="abstract-card">
+              <p>
+                CardioMark provides a standardized benchmark for automated VHS
+                estimation that connects dataset construction, annotation
+                tooling, geometric measurement, and clinically meaningful
+                evaluation. By releasing structured keypoint annotations and
+                evaluation protocols, the benchmark enables researchers to
+                compare models across the complete VHS pipeline rather than
+                relying only on aggregate classification accuracy.
+              </p>
+              <p>
+                The central finding is that VHS-based diagnosis is highly
+                sensitive near fixed clinical thresholds. Strong overall
+                performance does not guarantee reliable behavior for
+                near-boundary cases or under small geometric perturbations.
+                CardioMark therefore emphasizes boundary sensitivity, subgroup
+                reliability, and decision instability as essential components of
+                evaluation.
+              </p>
+              <p class="mb-0">
+                During anonymous review, public links and identifying metadata
+                are withheld. Upon acceptance, the project page can be updated
+                with the full dataset release, source code, documentation, and
+                citation details.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="citation" class="sec-alt">
+      <div class="container">
+        <div class="sec-hdr" data-aos="fade-up">
+          <span class="pre-label">Reference</span>
+          <h2>Citation</h2>
+          <div class="accent-line"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-9" data-aos="fade-up" data-aos-delay="60">
+            <p style="font-size: 0.86rem; color: #666; margin-bottom: 14px">
+              BibTeX will be updated upon publication. The paper is currently
+              under anonymous review.
+            </p>
+            <div class="bib-block" id="bibtext">
+              @inproceedings{cardiomark2026, title = {CardioMark: Benchmarking
+              Reliability and Boundary Sensitivity in Automated Vertebral Heart
+              Score Estimation}, author = {Anonymous}, booktitle = {Advances in
+              Neural Information Processing Systems}, year = {2026}, note =
+              {Under review} }<button class="copy-btn" onclick="copyBib()">
+                Copy
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div
+          class="d-flex flex-wrap justify-content-between align-items-center gap-3"
+        >
+          <div>
+            <span class="brand">CardioMark</span
+            ><span class="f-sep"></span>NeurIPS 2026 Datasets &amp;
+            Benchmarks<span class="f-sep"></span>Anonymous Submission
+          </div>
+          <div><a href="#hero">↑ Top</a></div>
+        </div>
+      </div>
+    </footer>
+    <div class="lb" id="lbox" onclick="lbc()">
+      <button class="lb-close" onclick="lbc()">&#x2715;</button
+      ><img id="lbimg" src="" alt="" onclick="event.stopPropagation()" />
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 550,
+        easing: "ease-in-out",
+        once: true,
+        offset: 50,
+      });
+      function lb(s) {
+        document.getElementById("lbimg").src = s;
+        document.getElementById("lbox").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function lbc() {
+        document.getElementById("lbox").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") lbc();
+      });
+      function copyBib() {
+        const t = document
+          .getElementById("bibtext")
+          .innerText.replace("Copy", "")
+          .trim();
+        navigator.clipboard.writeText(t).then(() => {
+          const b = document.querySelector(".copy-btn");
+          b.textContent = "Copied!";
+          setTimeout(() => (b.textContent = "Copy"), 2000);
+        });
+      }
+      window.addEventListener("scroll", () => {
+        const n = document.getElementById("topnav");
+        n.style.padding = window.scrollY > 40 ? "7px 0" : "10px 0";
+        n.style.boxShadow =
+          window.scrollY > 40
+            ? "0 2px 22px rgba(0,0,0,.1)"
+            : "0 2px 18px rgba(0,0,0,.07)";
+      });
+      const breeds = [
+        [1, "Mixed Dog", 1256],
+        [2, "Labrador Retriever", 479],
+        [3, "Golden Retriever", 191],
+        [4, "German Shepherd", 164],
+        [5, "Chihuahua", 100],
+        [6, "Boxer", 79],
+        [7, "Shih Tzu", 77],
+        [8, "Yorkshire Terrier", 77],
+        [9, "French Bulldog", 76],
+        [10, "English Bulldog", 72],
+        [11, "Canine, NOS", 67],
+        [12, "Miniature Poodle", 62],
+        [13, "Siberian Husky", 61],
+        [14, "Border Collie", 57],
+        [15, "Beagle Hound", 56],
+        [16, "Pomeranian", 52],
+        [17, "Cavalier King Charles Spaniel", 51],
+        [18, "Pug", 48],
+        [19, "Boston Terrier", 44],
+        [20, "Jack Russell Terrier", 44],
+        [21, "Maltese", 44],
+        [22, "Australian Shepherd", 42],
+        [23, "Shetland Sheepdog", 42],
+        [24, "Rottweiler", 41],
+        [25, "English Cocker Spaniel", 35],
+        [26, "Great Dane", 34],
+        [27, "Bernese Mountain Dog", 32],
+        [28, "Miniature Schnauzer", 32],
+        [29, "Cock-A-Poo", 31],
+        [30, "Irish Wolfhound", 9],
+        [31, "Swiss Mountain Dog", 4],
+        [32, "English Shepherd", 4],
+        [33, "Nova Scotia Duck Tolling Retriever", 4],
+        [34, "Saluki", 4],
+        [35, "Italian Greyhound", 4],
+        [36, "Flat-Coated Retriever", 4],
+        [37, "Shiba Inu", 4],
+        [38, "Smooth Miniature Dachshund", 23],
+        [39, "English Setter", 21],
+        [40, "Australian Cattle Dog", 20],
+        [41, "Toy Poodle", 20],
+        [42, "Chinese Shar-Pei", 20],
+        [43, "Bichon Frise", 19],
+        [44, "American Bulldog", 18],
+        [45, "Pembroke Welsh Corgi", 18],
+        [46, "West Highland Terrier", 18],
+        [47, "Rhodesian Ridgeback", 18],
+        [48, "English Springer Spaniel", 17],
+        [49, "American Staffordshire Terrier", 17],
+        [50, "Miniature Pinscher", 16],
+        [51, "Brittany Spaniel", 16],
+        [52, "Long-Haired Standard Dachshund", 14],
+        [53, "German Short-Haired Pointer", 14],
+        [54, "Terrier, NOS", 14],
+        [55, "Basset Hound", 13],
+        [56, "Newfoundland", 13],
+        [57, "Bull Mastiff", 12],
+        [58, "Long-Haired Miniature Dachshund", 12],
+        [59, "Bulldog, NOS", 12],
+        [60, "Belgian Malinois", 12],
+        [61, "Lhasa Apso", 11],
+        [62, "Greyhound", 11],
+        [63, "Bull Terrier", 10],
+        [64, "Irish Setter", 10],
+        [65, "Catahoula Leopard Dog", 9],
+        [66, "Saint Bernard", 9],
+        [67, "Treeing Walker Coonhound", 4],
+        [68, "Bloodhound", 3],
+        [69, "Chinese Crested", 3],
+        [70, "American Foxhound", 3],
+        [71, "Tibetan Terrier", 3],
+        [72, "Neapolitan Mastiff", 3],
+        [73, "Australian Heeler", 2],
+        [74, "Red Bone Hound", 8],
+        [75, "Samoyed", 7],
+        [76, "Chesapeake Bay Retriever", 7],
+        [77, "Vizsla", 7],
+        [78, "Smooth Standard Dachshund", 7],
+        [79, "American Pit Bull Terrier", 7],
+        [80, "Whippet", 7],
+        [81, "Akita", 6],
+        [82, "Leonberger", 6],
+        [83, "Schipperke", 6],
+        [84, "American Eskimo Dog", 6],
+        [85, "Mexican Hairless", 6],
+        [86, "Coonhound", 5],
+        [87, "English Mastiff", 5],
+        [88, "Silky Terrier", 5],
+        [89, "German Wire-Haired Pointer", 5],
+        [90, "Weimaraner", 5],
+        [91, "Papillon", 5],
+        [92, "Scottish Terrier", 5],
+        [93, "Staffordshire Bull Terrier", 5],
+        [94, "Mastiff, NOS", 5],
+        [95, "Hound, NOS", 5],
+        [96, "Keeshond", 5],
+        [97, "Giant Schnauzer", 4],
+        [98, "Airedale Terrier", 4],
+        [99, "Coton De Tulear", 4],
+        [100, "Cocker Spaniel, NOS", 9],
+        [101, "Cairn Terrier", 9],
+        [102, "Rat Terrier", 9],
+        [103, "Spinone Italiano", 2],
+        [104, "Briard", 2],
+        [105, "Old English Sheepdog", 2],
+        [106, "Borzoi", 2],
+        [107, "Alaskan Malamute", 2],
+        [108, "Norwegian Elkhound", 2],
+        [109, "German Long-Haired Pointer", 2],
+        [110, "Affenpinscher", 2],
+        [111, "Toy Manchester Terrier", 2],
+        [112, "Clumber Spaniel", 2],
+        [113, "Standard Schnauzer", 2],
+        [114, "Irish Water Spaniel", 1],
+        [115, "Shiloh Shepherd", 1],
+        [116, "Cardigan Welsh Corgi", 1],
+        [117, "American Bully", 1],
+        [118, "Japanese Chin", 1],
+        [119, "English Coonhound", 1],
+        [120, "Border Terrier", 1],
+        [121, "Setter, NOS", 1],
+        [122, "Tibetan Spaniel", 1],
+        [123, "American Cocker Spaniel", 1],
+        [124, "Australian Terrier", 1],
+        [125, "Welsh Terrier", 1],
+        [126, "Norfolk Terrier", 1],
+        [127, "Dalmatian", 1],
+        [128, "Pharaoh Hound", 1],
+        [129, "Springer Spaniel", 1],
+        [130, "Silken Windsprite", 1],
+        [131, "Wirehaired Standard Dachshund", 1],
+        [132, "Retriever, NOS", 1],
+        [133, "Soft-Coated Wheaten Terrier", 1],
+        [134, "Maremma Sheepdog", 1],
+        [135, "Standard Poodle", 31],
+        [136, "Havanese", 30],
+        [137, "Dachshund, NOS", 28],
+        [138, "Collie, NOS", 9],
+        [139, "Peke-A-Poo", 2],
+        [140, "Anatolian Shepherd", 2],
+        [141, "Wirehaired Pointing Griffon", 2],
+        [142, "Doberman Pinscher", 26],
+        [143, "Labradoodle", 26],
+        [144, "Great Pyrenees", 24],
+        [145, "Cane Corso", 8],
+        [146, "Unknown", 8039],
+      ];
+      (function buildBreedGrid() {
+        const grid = document.getElementById("breed-grid");
+        if (!grid) return;
+        const chunkSize = Math.ceil(breeds.length / 3);
+        const chunks = [
+          breeds.slice(0, chunkSize),
+          breeds.slice(chunkSize, 2 * chunkSize),
+          breeds.slice(2 * chunkSize),
+        ];
+        const row = document.createElement("div");
+        row.className = "row g-3";
+        let lastCard = null;
+        chunks.forEach((chunk) => {
+          const col = document.createElement("div");
+          col.className = "col-12 col-md-4";
+          const card = document.createElement("div");
+          card.className = "breed-card";
+          card.innerHTML =
+            '<div class="breed-header"><div class="breed-no">#</div><div class="breed-name">Breed</div><div class="breed-count">Count</div></div>';
+          chunk.forEach((item) => {
+            const r = document.createElement("div");
+            r.className = "breed-row";
+            r.innerHTML = `<div class="breed-cell breed-no">${item[0]}</div><div class="breed-cell breed-name">${item[1]}</div><div class="breed-cell breed-count">${Number(item[2]).toLocaleString()}</div>`;
+            card.appendChild(r);
+          });
+          col.appendChild(card);
+          row.appendChild(col);
+          lastCard = card;
+        });
+        grid.appendChild(row);
+        if (lastCard) {
+          const total = breeds.reduce((s, r) => s + Number(r[2]), 0);
+          const totalRow = document.createElement("div");
+          totalRow.className = "breed-row breed-total";
+          totalRow.innerHTML = `<div class="breed-cell breed-no">—</div><div class="breed-cell breed-name"><strong>Total</strong></div><div class="breed-cell breed-count"><strong>${total.toLocaleString()}</strong></div>`;
+          lastCard.appendChild(totalRow);
+        }
+      })();
+    </script>
+  </body>
+</html>
