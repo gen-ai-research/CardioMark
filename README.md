@@ -10,6 +10,8 @@
 
 CardioMark is a benchmark dataset and evaluation suite for automated Vertebral Heart Score (VHS) estimation in canine lateral thoracic radiographs. It provides:
 
+🔗 **Project Page:** [https://gen-ai-research.github.io/CardioMark/](https://gen-ai-research.github.io/CardioMark/)
+
 - **21,465 radiographs** from **12,385 dogs** across **144 breeds**
 - Six cardiac keypoint annotations per image (A–F), enabling geometry-aware VHS computation
 - Rigorous inter-annotator agreement: Fleiss' κ = 0.88 across 9 experts on 300 images
@@ -19,7 +21,7 @@ CardioMark is a benchmark dataset and evaluation suite for automated Vertebral H
 
 | Finding | Result |
 |---|---|
-| Best overall accuracy | 89.75% (VectorGeoRefineNet, EfficientNet-B7) |
+| Best overall accuracy | 89.81% (VectorGeoRefineNet, EfficientNet-B7) |
 | Normal class collapse | 42–70% across all architectures |
 | Near-boundary accuracy | **65–72%** vs. 99% far from threshold |
 | Near-boundary flip rate | 14–17% under ±0.1 VU perturbation |
@@ -31,9 +33,9 @@ CardioMark is a benchmark dataset and evaluation suite for automated Vertebral H
 
 | Split | Images | Normal | Borderline | Enlarged |
 |---|---|---|---|---|
-| Train | 15,026 | 855 | 3,600 | 10,571 |
-| Val | 2,155 | 98 | 523 | 1,534 |
-| Test | 4,274 | 185 | 1,012 | 3,077 |
+| Train | 15,036 | 855 | 3,600 | 10,571 |
+| Val | 2,154 | 98 | 523 | 1,533 |
+| Test | 4,275 | 185 | 1,012 | 3,077 |
 
 Splits are **patient-level** — no dog appears in more than one split.
 
@@ -188,14 +190,14 @@ All baselines are evaluated with `evaluate.py` using the same GT protocol (`calc
 
 | Model | Acc | Normal | Borderline | Enlarged | NME |
 |---|---|---|---|---|---|
-| MeasureNet (EfficientNet-B7) | 81.91% | 90.50% | 80.11% | 81.02% | 0.037 |
-| ConvNeXt-tiny Direct Reg. | 82.90% | 89.17% | 78.16% | 86.57% | 0.018 |
-| VGR (HRNet-W32) | 85.35% | 54.59% | 65.91% | 93.60% | 0.024 |
-| VGR (ViT-Base) | 85.66% | 42.70% | 65.91% | 94.74% | 0.024 |
-| VGR (ConvNeXt-Base) | 89.61% | 62.70% | 76.68% | 95.48% | 0.019 |
-| **VGR (EfficientNet-B7) ★** | **89.75%** | **70.81%** | **75.89%** | **95.45%** | **0.019** |
+| EfficientNet-B7 Direct Reg. | 81.91% | – | – | – | 0.017 |
+| ConvNeXt-tiny Direct Reg. | 82.90% | – | – | – | 0.018 |
+| SVGR (HRNet-W32) | 85.35% | 54.59% | 65.91% | 93.60% | 0.024 |
+| SVGR (ViT-Base) | 85.66% | 42.70% | 65.91% | 94.74% | 0.024 |
+| SVGR (ConvNeXt-Base) | 89.61% | 62.70% | 76.68% | 95.48% | 0.019 |
+| **SVGR (EfficientNet-B7) ★** | **89.81%** | **70.81%** | **75.89%** | **95.45%** | **0.009** |
 
-★ = proposed strong baseline. VGR = VectorGeoRefineNet.
+★ = proposed strong baseline. SVGR = Structured Vector Geometry Refinement baseline.
 
 ---
 
@@ -216,7 +218,7 @@ Clinical thresholds: Normal < 8.2 VU · Borderline 8.2–10.0 · Enlarged ≥ 10
 
 ## Annotation tool
 
-VetMark reduces annotation time from ~5 minutes to 10–30 seconds per image through model-assisted prediction and real-time VHS feedback. The tool enabled CardioMark's scale: at 5 min/image, 21,465 annotations would require ~1,788 person-hours. VetMark reduces this to ~179 hours.
+VetMark reduces annotation time from over one minute to 10–30 seconds per image through model-assisted prediction and real-time VHS feedback. The tool enabled CardioMark's scale: at 1 min/image, 21,465 annotations would require ~358 person-hours. VetMark reduces this to ~89 hours.
 
 ---
 
