@@ -1517,8 +1517,9 @@
           <span class="pre-label">Experiments</span>
           <h2>Results and Reliability Analysis</h2>
           <p>
-            Aggregate metrics are useful, but CardioMark highlights where
-            clinically relevant errors occur.
+            CardioMark evaluates both predictive performance and clinical
+measurement reliability through boundary-sensitive metrics,
+failure analysis, and Bland–Altman agreement analysis.
           </p>
           <div class="accent-line"></div>
         </div>
@@ -1533,7 +1534,7 @@
                 />
               </div>
               <div class="fig-body">
-                <span class="fig-num">Predicted vs. Ground-Truth VHS</span>
+                <span class="fig-num">Regression Performance</span>
                 <p class="fig-cap">
                   Scatter plots compare model behavior against the diagonal and
                   clinical thresholds. The analysis shows that pointwise error
@@ -1553,7 +1554,7 @@
                 />
               </div>
               <div class="fig-body">
-                <span class="fig-num">Failure Analysis</span>
+                <span class="fig-num">Boundary and Reliability Analysis</span>
                 <p class="fig-cap">
                   Boundary sensitivity, subgroup performance, and decision
                   instability reveal reliability gaps that aggregate metrics
@@ -1563,6 +1564,34 @@
             </div>
           </div>
         </div>
+        <div class="row g-4 mb-5">
+  <div class="col-lg-12" data-aos="fade-up">
+    <div class="fig-card fig-wide">
+      <div class="fig-img">
+        <img
+          src="figures/bland_altman_analysis.png"
+          alt="Bland–Altman agreement analysis"
+          onclick="lb(this.src)"
+        />
+      </div>
+
+      <div class="fig-body">
+        <span class="fig-num">Clinical Agreement Analysis</span>
+
+        <p class="fig-cap">
+          Bland–Altman analysis evaluates agreement between predicted and
+          expert-measured Vertebral Heart Scores (VHS). The EfficientNet-B7 +
+          SVGR baseline achieves a mean bias of <strong>−0.163 VU</strong>
+          with 95% limits of agreement of
+          <strong>[−1.399, 1.073] VU</strong>
+          (MAE = <strong>0.435 VU</strong>), indicating strong overall
+          agreement while highlighting a small number of challenging outlier
+          cases.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
         <div class="row g-4">
           <div class="col-lg-6" data-aos="fade-up">
             <p class="tbl-label">Boundary Sensitivity Summary</p>
